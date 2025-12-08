@@ -1,0 +1,25 @@
+# Project Echo – Python Dependencies
+# ====================================
+#
+# Core dependencies (required for basic functionality)
+numpy>=1.24.0
+
+# Image processing (Pillow is lighter weight than OpenCV)
+Pillow>=10.0.0
+
+# Audio processing (librosa is preferred, scipy as fallback)
+librosa>=0.10.0
+scipy>=1.11.0
+
+# CPU inference backends (optional - install as needed)
+# For ONNX Runtime:
+# onnxruntime>=1.16.0
+#
+# For TensorFlow Lite:
+# tflite-runtime>=2.13.0
+# OR
+# tensorflow>=2.13.0
+
+# Note: Akida SDK must be installed separately from BrainChip
+# (typically a .whl file for Linux ARM64 platforms)
+

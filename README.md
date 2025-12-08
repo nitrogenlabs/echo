@@ -5,7 +5,7 @@
 ![Neuromorphic](https://img.shields.io/badge/neuromorphic-Akida-blueviolet.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 ![NodeJS](https://img.shields.io/badge/nodejs-24%2B-green.svg)
-![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)
+![License](https://img.shields.io/badge/license-Custom-blue.svg)
 ![Status](https://img.shields.io/badge/status-Active%20Development-yellow.svg)
 
 Neuromorphic Intelligence • Real-Time Edge Processing • Adaptive Learning Systems
@@ -81,12 +81,15 @@ For development:
 
 project-echo/
 │
-├── echo-core/              # Core neuromorphic logic, Akida drivers, pipelines
-├── echo-api/               # NodeJS/GraphQL/REST API (optional)
-├── echo-tools/             # CLI tools, testing utilities, benchmarking
-├── echo-experiments/       # Prototype SNN models, demos, PoC notebooks
-├── scripts/                # Deployment & setup scripts
-├── docs/                   # Extended documentation
+├── api/               # NodeJS REST API with WebSocket support
+│   └── README.md      # [API Documentation](api/README.md)
+├── dashboard/         # React + TypeScript web dashboard
+│   └── README.md      # [Dashboard Documentation](dashboard/README.md)
+├── core/              # Core neuromorphic logic, Akida drivers, pipelines
+├── docs/              # Extended documentation
+├── experiments/       # Prototype SNN models, demos PoC notebooks
+├── scripts/           # Deployment & setup scripts
+├── tools/             # CLI tools, testing utilities, benchmarking
 └── README.md
 
 ---
@@ -182,13 +185,13 @@ python scripts/check_akida.py
 If successful:
 
 ```bash
-python echo-experiments/demo_inference.py
+python experiments/demo_inference.py
 ```
 
 #### 3.7. Run a Sample Model
 
 ```bash
-python echo-experiments/demo_inference.py
+python experiments/demo_inference.py
 ```
 
 ---
@@ -252,7 +255,7 @@ This is normal.
 Whether you're on macOS or Pi:
 
 ```bash
-python echo-experiments/demo_inference.py
+python experiments/demo_inference.py
 ```
 
 **On macOS:**
@@ -271,16 +274,15 @@ If this runs, the core of Project Echo is working.
 
 The Node.js API handles:
 
-- REST endpoints
-- GraphQL
-- WebSocket streaming
+- REST endpoints for device, model, and session management
+- WebSocket streaming for real-time events
 - Device state monitoring
-- Model management UI (coming soon)
+- Structured JSON logging
 
 From the project root:
 
 ```bash
-cd echo-api
+cd api
 npm install
 npm run dev
 ```
@@ -298,9 +300,36 @@ You can now send requests via:
 - Curl
 - Your own client apps
 
+For detailed API documentation, see [api/README.md](api/README.md).
+
+### 5. Start the Echo Dashboard (Optional)
+
+The web dashboard provides a real-time interface for monitoring devices, models, and sessions.
+
+From the project root:
+
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+
+**Expected output:**
+
+```text
+Dashboard running on http://localhost:5173
+```
+
+The dashboard connects to the API automatically and provides:
+- Real-time device status monitoring
+- Model management interface
+- Session and inference event tracking
+
+For detailed dashboard documentation, see [dashboard/README.md](dashboard/README.md).
+
 ---
 
-### 5. Train or Convert a Model
+### 6. Train or Convert a Model
 
 Project Echo pipelines expect models to be:
 
@@ -311,7 +340,7 @@ Project Echo pipelines expect models to be:
 From the project root, example:
 
 ```bash
-python echo-tools/build_model.py --model models/my_model.h5
+python tools/build_model.py --model models/my_model.h5
 ```
 
 This will generate:
@@ -322,24 +351,24 @@ build/my_model.ez
 
 ---
 
-### 6. Deploy a Model to the Device (Akida only)
+### 7. Deploy a Model to the Device (Akida only)
 
 If you're on Raspberry Pi:
 
 ```bash
-python echo-tools/deploy.py --target pi5 --model build/my_model.ez
+python tools/deploy.py --target pi5 --model build/my_model.ez
 ```
 
 This prepares the model for real-time hardware inference.
 
 ---
 
-### 7. Run an Application or Experiment
+### 8. Run an Application or Experiment
 
 Echo provides starter experiments in:
 
 ```text
-echo-experiments/
+experiments/
 ```
 
 **Examples:**
@@ -347,19 +376,19 @@ echo-experiments/
 **Object detection:**
 
 ```bash
-python echo-experiments/object_detection.py
+python experiments/object_detection.py
 ```
 
 **Audio event recognition:**
 
 ```bash
-python echo-experiments/audio_classifier.py
+python experiments/audio_classifier.py
 ```
 
 **Custom pipelines:**
 
 ```bash
-python echo-experiments/run_pipeline.py
+python experiments/run_pipeline.py
 ```
 
 ---
@@ -369,9 +398,10 @@ python echo-experiments/run_pipeline.py
 **If on macOS:**
 
 1. `source venv/bin/activate`
-2. `python echo-experiments/demo_inference.py`
-3. `cd echo-api && npm install && npm run dev`
-4. Begin developing models or tools
+2. `python experiments/demo_inference.py`
+3. `cd api && npm install && npm run dev` (see [api/README.md](api/README.md))
+4. `cd dashboard && npm install && npm run dev` (see [dashboard/README.md](dashboard/README.md))
+5. Begin developing models or tools
 
 **If on Raspberry Pi:**
 
@@ -390,16 +420,22 @@ Once the basics are running, the next milestones are:
 - **Build your first neuromorphic model** — Using the SNN tools provided
 - **Create agents / robotics integrations** — Echo was designed to support autonomy and sensor fusion
 - **Set up multi-device networking** — Later phases of Echo include networked neuromorphic nodes
-- **Add a UI dashboard** — For monitoring device state, inference, and pipeline graphs
+- **Extend the dashboard** — Add custom views and monitoring capabilities (see [dashboard/README.md](dashboard/README.md))
 
 ---
 
 ## Additional Resources
 
+### Documentation
+
+- [API Documentation](api/README.md) - Complete guide to the Echo REST API and WebSocket server
+- [Dashboard Documentation](dashboard/README.md) - Guide to the web dashboard interface
+
+### Examples and Templates
+
 We can provide:
 
 - The first real model pipeline to run
-- A GUI dashboard starter template (React + WebSockets)
 - A sample agent AI that uses Echo
 - A sensor input example for Pi Camera or USB camera
 - A multi-device mesh networking example
@@ -426,4 +462,16 @@ Pull requests are welcome.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under a custom license that permits **free use** for:
+- **Non-profit** organizations and projects
+- **Educational** use (schools, universities, research institutions)
+- **Personal** use (individuals for personal projects)
+
+For **commercial use** (any use for profit), a separate commercial license from
+Nitrogen Labs, Inc. is required.
+
+See the [LICENSE](LICENSE) file for full details.
+
+**Commercial Licensing**: For inquiries about commercial licensing, please contact:
+- Email: licensing@nitrogenlabs.com
+- Website: https://nitrogenlabs.com

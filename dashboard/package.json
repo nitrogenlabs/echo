@@ -1,0 +1,19 @@
+{
+  "name": "echo-dashboard",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "lex dev",
+    "build": "lex build --remove",
+    "test": "lex test",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "update": "lex update --interactive"
+  },
+  "dependencies": {
+    "@nlabs/arkhamjs": "^3.31.9",
+    "@nlabs/arkhamjs-utils-react": "^3.32.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  }
+}
+

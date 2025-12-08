@@ -1,0 +1,43 @@
+{
+  "name": "project-echo",
+  "version": "0.1.0",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "workspaces": [
+    "api",
+    "dashboard"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=api",
+    "dev:dashboard": "npm run dev --workspace=dashboard",
+    "build": "npm run build --workspaces",
+    "build:api": "npm run build --workspace=api",
+    "build:dashboard": "npm run build --workspace=dashboard",
+    "type-check:api": "npm run type-check --workspace=api",
+    "lint:dashboard": "npm run lint --workspace=dashboard",
+    "update": "npm run update --workspaces"
+  },
+  "devDependencies": {
+    "@nlabs/lex": "^1.52.1",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "css-minimizer-webpack-plugin": "^7.0.3",
+    "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "cross-spawn": "^6.0.6",
+    "execa": "^9.6.1",
+    "got": "^13.0.0",
+    "cacheable-request": "^10.2.0",
+    "http-cache-semantics": "^4.1.1",
+    "css-select": "^5.1.0",
+    "nth-check": "^2.1.1",
+    "http-proxy-middleware": "^3.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "find-versions": "^5.0.0",
+    "bin-version": "^4.0.0",
+    "bin-version-check": "^5.0.0",
+    "bin-wrapper": "^4.1.0"
+  }
+}
