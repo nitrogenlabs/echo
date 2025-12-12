@@ -3,6 +3,7 @@ import {initStore} from './store/index.js';
 import {wsService} from './services/websocket.js';
 import {fetchState} from './services/api.js';
 import {Flux} from '@nlabs/arkhamjs';
+import ChatView from './views/ChatView.js';
 import DevicesView from './views/DevicesView.js';
 import ModelsView from './views/ModelsView.js';
 import SessionsView from './views/SessionsView.js';
@@ -35,12 +36,18 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Project Echo Dashboard</h1>
+        <p className="app-subtitle">AI-Powered Neuromorphic Edge Computing</p>
       </header>
       <main className="app-main">
-        <div className="views-container">
-          <DevicesView />
-          <ModelsView />
-          <SessionsView />
+        <div className="dashboard-layout">
+          <div className="dashboard-primary">
+            <ChatView />
+          </div>
+          <div className="dashboard-secondary">
+            <DevicesView />
+            <ModelsView />
+            <SessionsView />
+          </div>
         </div>
       </main>
     </div>

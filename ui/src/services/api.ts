@@ -31,3 +31,23 @@ export async function fetchState() {
   return fetchJson<any>(`/api/state`);
 }
 
+async function postJson<T>(endpoint: string, body: any): Promise<T> {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    const error = await response
+      .json()
+      .catch(() => ({ error: response.statusText }));
+    throw new Error(error.error || `API error: ${response.statusText}`);
+  }
+  return response.json();
+}
+
+export async function sendPrompt(prompt: string): Promise<any> {
+  return postJson<any>(`/api/prompt`, { prompt });
+}
