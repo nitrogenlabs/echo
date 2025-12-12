@@ -5,7 +5,7 @@
 ![Neuromorphic](https://img.shields.io/badge/neuromorphic-Akida-blueviolet.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 ![NodeJS](https://img.shields.io/badge/nodejs-24%2B-green.svg)
-![License](https://img.shields.io/badge/license-Custom-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)
 ![Status](https://img.shields.io/badge/status-Active%20Development-yellow.svg)
 
 Neuromorphic Intelligence • Real-Time Edge Processing • Adaptive Learning Systems
@@ -83,8 +83,8 @@ project-echo/
 │
 ├── api/               # NodeJS REST API with WebSocket support
 │   └── README.md      # [API Documentation](api/README.md)
-├── dashboard/         # React + TypeScript web dashboard
-│   └── README.md      # [Dashboard Documentation](dashboard/README.md)
+├── ui/                # React + TypeScript web UI
+│   └── README.md      # [UI Documentation](ui/README.md)
 ├── core/              # Core neuromorphic logic, Akida drivers, pipelines
 ├── docs/              # Extended documentation
 ├── experiments/       # Prototype SNN models, demos PoC notebooks
@@ -462,16 +462,4 @@ Pull requests are welcome.
 
 ## License
 
-This project is licensed under a custom license that permits **free use** for:
-- **Non-profit** organizations and projects
-- **Educational** use (schools, universities, research institutions)
-- **Personal** use (individuals for personal projects)
-
-For **commercial use** (any use for profit), a separate commercial license from
-Nitrogen Labs, Inc. is required.
-
-See the [LICENSE](LICENSE) file for full details.
-
-**Commercial Licensing**: For inquiries about commercial licensing, please contact:
-- Email: licensing@nitrogenlabs.com
-- Website: https://nitrogenlabs.com
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

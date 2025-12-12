@@ -48,6 +48,6 @@ ENV/
 
 # Runtime
 api/lib
-dashboard/dist
+ui/lib
 *.ez
 

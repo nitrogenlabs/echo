@@ -2,23 +2,22 @@
   "name": "project-echo",
   "version": "0.1.0",
   "private": true,
-  "license": "SEE LICENSE IN LICENSE",
   "workspaces": [
     "api",
-    "dashboard"
+    "ui"
   ],
   "scripts": {
     "dev:api": "npm run dev --workspace=api",
-    "dev:dashboard": "npm run dev --workspace=dashboard",
+    "dev:ui": "npm run dev --workspace=ui",
     "build": "npm run build --workspaces",
     "build:api": "npm run build --workspace=api",
-    "build:dashboard": "npm run build --workspace=dashboard",
+    "build:ui": "npm run build --workspace=ui",
     "type-check:api": "npm run type-check --workspace=api",
-    "lint:dashboard": "npm run lint --workspace=dashboard",
+    "lint:ui": "npm run lint --workspace=ui",
     "update": "npm run update --workspaces"
   },
   "devDependencies": {
-    "@nlabs/lex": "^1.52.1",
+    "@nlabs/lex": "^1.52.9",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
