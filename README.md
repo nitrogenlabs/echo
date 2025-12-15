@@ -55,6 +55,8 @@ The long-term goal is to create a flexible, scalable platform for edge-based int
 - Pi case with active cooling
 - HDMI display or headless SSH configuration
 
+For detailed hardware setup instructions, including purchasing links and assembly guide, see [Hardware Setup Guide](docs/HARDWARE_SETUP.md).
+
 ---
 
 ## Software Requirements
@@ -321,6 +323,7 @@ Dashboard running on http://localhost:5173
 ```
 
 The dashboard connects to the API automatically and provides:
+
 - Real-time device status monitoring
 - Model management interface
 - Session and inference event tracking
